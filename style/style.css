@@ -1,0 +1,108 @@
+@import url(reset.css);
+@import url(fonts.css);
+
+:root {
+    font-family: sans-serif;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+}
+
+header {
+    width: 100vw;
+    height: 15vh;
+    background-color: gray;
+    display: flex;
+}
+
+main {
+    width: 100vw;
+    min-height: 85vh;
+}
+
+nav {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textBox {
+    min-height: 85vh;
+    padding: 20px;
+    line-height: 40px;
+    text-align: start;
+    background-repeat: repeat-y;
+    font-weight: normal;
+}
+
+
+main .area {
+    width: 100%;
+    min-height: 84vh;
+    padding: 40px;
+    font-family: monospace;
+}
+
+#dropdownSelectFont {
+    padding: 6px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#dropdownSelectSize {
+    padding: 6px;
+    border-radius: 0;
+}
+
+.colorsTxt,
+.colorsBack {
+    display: grid;
+    grid-template-rows: 60px 60px 60px;
+    grid-template-columns: 60px 60px 60px 60px 60px 60px 60px;
+    gap: 7.5px;
+}
+
+.backgroundImg {
+    display: grid;
+    grid-template-rows: 60px 60px 60px;
+    grid-template-columns: 140px 140px 140px;
+    gap: 7.5px;
+    column-gap: 23px;
+}
+
+.image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.colTxt,
+.colBack,
+.image {
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.createTable,
+.titleTable,
+.titleOlList,
+.titleUlList,
+.signInTitle {
+    font-size: 20px;
+}
+
+ol,
+ul {
+    list-style-position: inside;
+}
+
+
+.close:focus {
+    outline: none;
+    background-color: lightgrey;
+    border-radius: 5px;
+}
