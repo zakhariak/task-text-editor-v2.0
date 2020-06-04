@@ -1,5 +1,4 @@
 $(function () {
-    //робить текст жирним    
     $('.bold').click(function () {
         if ($('.textBox').css('font-weight') == '400') {
             $('.textBox').css('font-weight', 'bold')
@@ -7,7 +6,7 @@ $(function () {
             $('.textBox').css('font-weight', 'normal')
         }
     })
-    //робить текст курсивним
+
     $('.italic').click(function () {
         if ($('.textBox').css('font-style') == 'normal') {
             $('.textBox').css('font-style', 'italic')
@@ -15,7 +14,7 @@ $(function () {
             $('.textBox').css('font-style', 'normal')
         }
     })
-    // підкреслює текст
+
     $('.underline').click(function () {
         if ($('.textBox').css('text-decoration-line') == 'none') {
             $('.textBox').css('text-decoration-line', 'underline')
@@ -25,7 +24,7 @@ $(function () {
             $('.textBox').css('text-decoration-line', 'underline')
         }
     })
-    // закреслює текст
+
     $('.lineThrough').click(function () {
         if ($('.textBox').css('text-decoration-line') == 'line-through') {
             $('.textBox').css('text-decoration-line', 'none')
@@ -35,7 +34,7 @@ $(function () {
             $('.textBox').css('text-decoration-line', 'line-through')
         }
     })
-    // три кнопки положення тексту: з ліва, по центру, з права
+
     $('.alignLeft').click(function () {
         $('.textBox').css('text-align', 'start')
     })
@@ -47,26 +46,25 @@ $(function () {
     $('.alignRight').click(function () {
         $('.textBox').css('text-align', 'right')
     })
-    //встановив шрифт в випадаючому блоці відповідно до витягнутого шрифту. і при кліку на нього встановлює цей шрифт 
+
     for (let i = 0; i < $('.dropdownFont').children('a').length; i++) {
         $('.dropdownFont').children('a').eq(i).css('font-family', ($('.dropdownFont').children('a').eq(i).text()))
         $('.dropdownFont').children('a').eq(i).click(function () {
             $('.textBox').css('font-family', ($('.dropdownFont').children('a').eq(i).text()))
         })
     }
-    //встановив розмір шрифту в випадаючому блоці відповідно до витягнутого значення. і при кліку на нього встановлює розмір шрифту 
+
     for (let i = 0; i < $('.dropdownSize').children('a').length; i++) {
         $('.dropdownSize').children('a').eq(i).css('font-size', ($('.dropdownSize').children('a').eq(i).text()))
         $('.dropdownSize').children('a').eq(i).click(function () {
             $('.textBox').css('font-size', ($('.dropdownSize').children('a').eq(i).text()))
         })
     }
-    //масив кольорів
+
     const colors = ['rgb(10,168,152)', 'rgb(10,143,130)', 'rgb(31,181,108)', 'rgb(26,155,93)', 'rgb(10,143,130)', 'rgb(40,144,220)', 'rgb(31, 121, 185)', 'rgb(155,99,183)', 'rgb(144,81,173)', 'rgb(50,71,94)', 'rgb(40,61,79)', 'rgb(244,188,5)', 'rgb(248,154,9)', 'rgb(237,130,27)', 'rgb(219,91,0)', 'rgb(241,90,56)', 'rgb(234,238,239)', 'rgb(186,193,196)', 'rgb(144,162,162)', 'rgb(124,137,139)', 'rgb(0,0,0)'];
-    //масив картинок
+
     const images = ['images/img1.jpg', 'images/img2.jpg', 'images/img3.jpg', 'images/img4.jpg', 'images/img5.jpg', 'images/img6.jpg', 'images/img7.jpg', 'images/img8.jpg', 'images/img9.jpg']
 
-    //добавляє квадрати з кольорами, вішає на них клік. встановлює колір шрифту
     for (let i = 0; i < colors.length; i++) {
         $('.colorsTxt').append('<div class="colTxt"></div>')
         $('.colTxt').eq(i).css('background-color', `${colors[i]}`)
@@ -74,7 +72,7 @@ $(function () {
             $('.textBox').css('color', ($('.colTxt').eq(i).css('background-color'))).css('text-decoration-color', ($('.colTxt').eq(i).css('background-color')))
         })
     }
-    //добавляє квадрати з кольорами, вішає на них клік. встановлює колір на фон
+
     for (let i = 0; i < colors.length; i++) {
         $('.colorsBack').append('<div class="colBack"></div>')
         $('.colBack').eq(i).css('background-color', `${colors[i]}`)
@@ -83,7 +81,7 @@ $(function () {
             $('.textBox').css('background-color', ($('.colBack').eq(i).css('background-color')))
         })
     }
-    //добавляє картинки, вішає на них клік. встановлює картинку на фон
+
     for (let i = 0; i < images.length; i++) {
         $('.backgroundImg').append('<div class="image"></div>')
         $('.image').eq(i).css('background-image', `url(${images[i]})`)
@@ -91,7 +89,7 @@ $(function () {
             $('.textBox').css('background-image', ($('.image').eq(i).css('background-image')))
         })
     }
-    // витягує 
+
     const input = document.querySelector('.custom-file-input');
     input.addEventListener('change', function (e) {
         const reader = new FileReader()
@@ -100,7 +98,7 @@ $(function () {
         }
         reader.readAsDataURL(input.files[0])
     }, false)
-    // кнопка відкриває модальне вікно в якому є інпути 
+
     $('.signIn').click(function () {
         if ($('.signInLog').val() == "" && $('.signInPass').val() == "") {
             $('.signInLog').addClass('is-invalid');
@@ -120,7 +118,7 @@ $(function () {
             $('.feedback-txt').text('Please check your loginor password').removeClass('d-none');
         }
     })
-    // кнопка відкриває модальне вікно в якому є вихід з профілю
+
     $('.signOut').click(function () {
         $('.butCode').prop('disabled', true);
         $('.butLock').attr('data-target', '#staticBackdropSignIn');
@@ -135,7 +133,6 @@ $(function () {
         $('.area').val(`${$('.textBox').html()}`)
     })
 
-    // при нажиманні на кнопку код попадає в div, друга сторінка міняється на першу 
     $('.butSave').click(function () {
         $('.textBox').html(`${$('.area').val()}`)
         $('.textBox').removeClass('d-none');
@@ -143,10 +140,10 @@ $(function () {
         $('.area').addClass('d-none');
         $('.secondToolbar').addClass('d-none');
     })
-    //змінні потрібні для подальшого використання у блоці таблиці
+
     let inpCheck = 0;
     let selCheck = 0;
-    //функція створює таблицю відносно введених даних в інпути і додає таблицю кодом в area
+
     $('.SaveCreateTable').click(function () {
         checkInputTable()
         const countTr = $('.countTR').val();
@@ -165,7 +162,6 @@ $(function () {
         }
     });
 
-    //функції витягують значення для всавки у функцію вище - createTable
     let tdWidth = () => $('.widthTD').val();
     let tdHeight = () => $('.heightTD').val();
     let borderWidth = () => {
@@ -178,8 +174,6 @@ $(function () {
     let borderStyle = () => $('.styleBorder').val();
     let borderColor = () => $('.colorBorder').val();
 
-
-    //перевірка інпутів в блоці таблиці, вона перевіряє і добавляє попередження.
     let checkInputTable = () => {
         for (let i = 0; i < $('.createTable input').length; i++) {
             if ($('.createTable input').eq(i).val() !== '') {
@@ -206,14 +200,12 @@ $(function () {
         }
     }
 
-    // перевірка на те щоб в інпути створення таблиці вводились тільки цифри
     for (let i = 0; i < $('.createTable input').length; i++) {
         $('.createTable input').eq(i).keydown(function (e) {
             return !(/^[А-Яа-яA-Za-z ]$/.test(e.key));
         })
     }
 
-    //скидання вмістимості інпутів в блоці створення таблиці і знімає всі стилі при неправильному введенні
     $('.resetInputTable').click(function () {
         for (let i = 0; i < $('.createTable input').length; i++) {
             $('.createTable input').eq(i).val('')
@@ -229,13 +221,9 @@ $(function () {
         selCheck = 0;
     })
 
-
-
-    //змінні потрібні для створення списку Ol
     let inpOlCheck = 0;
     let selOlCheck = 0;
 
-    // створення списку Ol
     $('.butcreateOlList').click(function () {
         checkInputOlList()
         const countLi = $('.countOlLi').val()
@@ -249,10 +237,8 @@ $(function () {
         }
     })
 
-    //витягує значення з інпута для подального використання вище
     let listOlMark = () => $('.changeOlMark').val();
 
-    //перевірка інпута і селекта, чи пусті
     let checkInputOlList = () => {
         if ($('.createOlList input').val() !== '') {
             $('.createOlList input').removeClass('is-invalid')
@@ -275,14 +261,12 @@ $(function () {
         }
     }
 
-    // перевірка на те щоб в інпути створення списку вводились тільки цифри
     for (let i = 0; i < $('.createOlList input').length; i++) {
         $('.createOlList input').eq(i).keydown(function (e) {
             return !(/^\D$/.test(e.key));
         })
     }
 
-    //скидання вмістимості інпутів в блоці створення списку і знімає усі стилі з інпутів
     $('.resetInputOlList').click(function () {
         $('.createOlList input').val('')
         $('.createOlList select').val('choose Ol type mark')
@@ -293,14 +277,9 @@ $(function () {
         inpOlCheck = 0
     })
 
-
-
-
-    // змінні потрібні для створення списку Ul
     let inpUlCheck = 0;
     let selUlCheck = 0;
 
-    // створення списку Ol
     $('.butcreateUlList').click(function () {
         checkInputUlList()
         const countLi = $('.countUlLi').val()
@@ -313,11 +292,9 @@ $(function () {
             $('.area').val($('.area').val() + ` ${list}`)
         }
     })
-    //витягує значення з інпута для подального використання вище
+
     let listUlMark = () => $('.changeUlMark').val();
 
-
-    //перевірка інпута і селекта, чи пусті
     let checkInputUlList = () => {
         if ($('.createUlList input').val() !== '') {
             $('.createUlList input').removeClass('is-invalid')
@@ -339,13 +316,13 @@ $(function () {
             $('.txtInvalidUlList').removeClass('d-block')
         }
     }
-    // перевірка на те щоб в інпути створення списку вводились тільки цифри
+
     for (let i = 0; i < $('.createUlList input').length; i++) {
         $('.createUlList input').eq(i).keydown(function (e) {
             return !(/^\D$/.test(e.key));
         })
     }
-    //скидання вмістимості інпутів в блоці створення списку і знімає усі стилі з інпутів
+
     $('.resetInputUlList').click(function () {
         $('.createUlList input').val('')
         $('.createUlList select').val('choose Ul type mark')
